@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body,
+html {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  scrollbar-color: #4a90e2 #222;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app {
+  flex: 1;
+  background-color: #f0eded;
+  display: flex;
+}

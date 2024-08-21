@@ -1,0 +1,31 @@
+$notification-backgroung: #4a90e2;
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: -300px;
+    background-color: $notification-backgroung;
+    padding: 1rem;
+    border-radius: 10px;
+    color: #fff;
+    animation: arrived 0.35s ease-in forwards;
+
+    @keyframes arrived {
+        from {
+            right: -300px;
+        } 
+        to {
+            right: 20px;
+        }
+    }
+
+    &.success {
+        background-color: #d4edda; 
+        color: #155724;
+    }
+
+    &.error {
+        background-color: #f8d7da;
+        color: #721c24; 
+    }
+}
