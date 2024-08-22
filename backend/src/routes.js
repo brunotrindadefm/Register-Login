@@ -56,7 +56,7 @@ routes.post('/register', async (req, res) => {
 
         // Validações
         const existingUser = await User.findOne({ where: { email } });
-        if (existingUser) return res.status(400).send('Erro. Email ou senha indisponíveis');
+        if (existingUser) return res.status(409).send('Erro. Email ou senha indisponíveis');
         if (!validator.isEmail(email)) return res.status(400).send('Erro. Email inválido.');
         if (name.length <= 2) return res.status(400).send('Erro. Nome deverá ter mais de 2 letras');
         // Valdações da senha
@@ -86,10 +86,10 @@ routes.post('/login', async (req, res) => {
         const { email, password } = req.body;
 
         const existingUser = await User.findOne({ where: { email } });
-        if (!existingUser) return res.status(400).send('Erro. Usuário não encontrado');
+        if (!existingUser) return res.status(404).send('Erro. Usuário não encontrado');
 
         const passwordMatch = await bcrypt.compare(password, existingUser.password);
-        if (!passwordMatch) return res.status(400).send('Erro. Usuário não encontrado')
+        if (!passwordMatch) return res.status(404).send('Erro. Usuário não encontrado')
 
         res.status(201).send('Usuário logado com sucesso!')
 
@@ -119,7 +119,7 @@ routes.get('/register/:email', async (req, res) => {
 routes.get('/register', async (req, res) => {
 
     const users = await User.findAll();
-    if (users.length === 0) return res.status(400).send('Nenhum usuário cadastrado')
+    if (users.length === 0) return res.status(404).send('Nenhum usuário cadastrado')
     res.json(users)
 
 });
