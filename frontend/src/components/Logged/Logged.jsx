@@ -13,7 +13,7 @@ const Logged = ({ logOut, userEmail }) => {
 
     const getUser = async () => {
         try {
-            const response = await axios.get(`http://localhost:7000/register/${userEmail}`);
+            const response = await axios.get(`http://localhost:7000/api/register/${userEmail}`);
             setUser(response.data)
         } catch (error) {
             console.log(error)

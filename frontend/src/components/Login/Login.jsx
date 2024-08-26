@@ -8,7 +8,7 @@ import { SiVorondesign } from "react-icons/si";
 import { useState} from 'react';
 import axios from 'axios';
 
-import Message from './Message';
+import Message from '../Message/Message';
 
 const Login = ({ handleShowRegister, handleLogged, getEmail }) => {
 
@@ -27,7 +27,7 @@ const Login = ({ handleShowRegister, handleLogged, getEmail }) => {
         e.preventDefault();
         setMessage('');
         try {
-            const response = await axios.post('http://localhost:7000/login', { email, password });
+            const response = await axios.post('http://localhost:7000/api/login', { email, password });
             setMessage(response.data)
             handleLogged();
             getEmail(email);

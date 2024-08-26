@@ -1,4 +1,4 @@
-import './Login.scss'
+import '../Login/Login.scss'
 
 import { MdOutlineEmail } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
@@ -9,7 +9,7 @@ import { SiNamemc } from "react-icons/si";
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 
-import Message from './Message';
+import Message from '../Message/Message';
 
 const Register = ({ handleShowRegister, handleUserRegister, getEmail }) => {
 
@@ -37,7 +37,7 @@ const Register = ({ handleShowRegister, handleUserRegister, getEmail }) => {
         e.preventDefault();
         setMessage('');
         try {
-            const response = await axios.post('http://localhost:7000/register', { name, email, password, confirmPassword })
+            const response = await axios.post('http://localhost:7000/api/register', { name, email, password, confirmPassword })
             setMessage(response.data);
             handleUserRegister();
             getEmail(email);

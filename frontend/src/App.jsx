@@ -1,7 +1,7 @@
-import Login from "./components/Login"
-import Screen from "./components/Screen"
-import Register from "./components/Register"
-import Logged from "./components/Logged";
+import Login from "./components/Login/Login"
+import Screen from "./components/Screen/Screen"
+import Register from "./components/Register/Register"
+import Logged from "./components/Logged/Logged";
 
 import { useState } from "react"
 
